@@ -1,0 +1,16 @@
+#div_resume {
+    background-color:#6ca7d1; 
+    border: 1px dashed; 
+    padding: 20px;
+  }
+#accompagnateurs {
+  resize: none;
+}
+#chaises {
+  border:1px solid grey;
+}
+.coords {
+  background-color:#6ca7d1; 
+  color:black;
+  padding: 50px;
+}

@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>RestoMe - Commander</title>
+  <link rel="stylesheet" href="./css/commander.css">
+  <link rel="stylesheet" href="./css/datePicker.css">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script scr="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.min.js"></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #6ca7d1;">
+    <a class="navbar-brand" href="#">RestoMe</a>
+    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+      aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation"></button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home </a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Commander <span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <br>
+  <form id="form1" name="form1" method="post" action="">
+    <div class="container" style="text-align: center;">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>Commandez votre table </h1>
+          <p>Ce formulaire permet de commander une table dans notre restaurant, ensuite vous pouvez commande vos plats.
+            Il
+            faudra aussi indiquer vos coordonn&eacute;es et dans le cas de plusieurs personne, indiquer le nom de
+            chacun
+            d'entre eux.</p>
+          Table pour <select name="nbp" id="nbp">
+            <option value="-1">--</option>
+            <option value="1">1</option>
+            <option value="2">2 </option>
+            <option value="4">4</option>
+            <option value="6">6</option>
+          </select> personnes
+          <br>
+          <br>
+          <div id="chaises"></div>
+          <br />
+          Pour le <input name="date" type="date" id="date" />
+          <br />
+        </div>
+
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="container-fluid coords">
+      <div class="row">
+        <div class="col-md-6" style="text-align: center;">
+          <h2>Vos coordon&eacute;es</h2>
+          Civilit&eacute; :
+          <input name="civilite" type="radio" value="Madamme"> Madamme</input>
+          <input name="civilite" type="radio" value="Mademoiselle" />
+          Mademoiselle
+          <input name="civilite" type="radio" value="Monsieur" />
+          Monsieur
+          <br />
+          <i class="fa fa-user"></i>
+          Nom & pr&eacute;nom
+          <input name="nom" type="text" id="nom" size="30" />
+          <br />
+          <i class="fa fa-phone"></i>
+          N&deg; de t&eacute;l&eacute;phone
+          <input name="tel" type="text" id="tel" size="30" />
+          <br />
+        </div>
+        <div class="col-md-6">
+          <div id="div_accompagnateurs"> <i class="fa fa-users"></i> Liste des accompagnateurs (une personne par ligne)
+            <br />
+            <textarea name="accompagnateurs" cols="60" rows="4" id="accompagnateurs"></textarea>
+            <br />
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+
+
+    <div class="container" style="text-align: center;">
+      <h2>Que voulez-vous manger ? </h2>
+      <div class="row">
+        <div class="col-md-2 col-sm-4 col-xs-6">
+          <div class="row">
+            <img src="img/icons8_Salad_50px_6.png" alt="salad-png" />
+          </div>
+          <br>
+          <div class="row">
+            <label>
+              <input name="cmd" type="checkbox" value="Salade" data-prix="5" />
+              Salade
+            </label>
+          </div>
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6">
+          <div class="row">
+            <img src="img/icons8_Ladle_50px.png" alt="soup-png" />
+          </div>
+          <br>
+          <div class="row">
+            <label>
+              <input name="cmd" type="checkbox" value="Soupe" data-prix="2.5" />
+              Soupe
+            </label>
+          </div>
+        </div>
+        <div class="col-md-2 col-sm-4">
+          <div class="row">
+            <img src="img/icons8_Kitchen_50px.png" alt="couscous-png" />
+          </div>
+          <br>
+          <div class="row">
+            <label>
+              <input name="cmd" type="checkbox" value="Couscous" data-prix="15.5" />
+              Couscous
+            </label>
+          </div>
+        </div>
+        <div class="col-md-2 col-sm-4">
+          <div class="row">
+            <img src="img/icons8_Rice_Bowl_50px.png" alt="rice-png" />
+          </div>
+          <br>
+          <div class="row">
+            <label>
+              <input name="cmd" type="checkbox" value="Riz" data-prix="12" />
+              Riz
+            </label>
+          </div>
+        </div>
+        <div class="col-md-2 col-sm-4">
+          <div class="row">
+            <img src="img/icons8_Apple_50px.png" alt="fruit-png" />
+          </div>
+          <br>
+          <div class="row">
+            <label>
+              <input name="cmd" type="checkbox" value="Fruits" data-prix="7" />
+              Fruits
+            </label>
+          </div>
+        </div>
+        <div class="col-md-2 col-sm-4">
+          <div class="row">
+            <img src="img/icons8_Cake_50px.png" alt="cake-png" />
+          </div>
+          <br>
+          <div class="row">
+            <label>
+              <input name="cmd" type="checkbox" value="Gateaux" data-prix="6.4" />
+              Gateaux
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+
+    <br />
+    <div class="container" style="text-align: center;"><button name="b1" type="button" id="b1" class="btn btn-outline-primary btn-lg" onclick="HandleVerification()">Confirmer</button></div>
+    
+    <br />
+    <br />
+
+    <div class="container" id="div_resume">
+      Votre Resume s'affichera ici ...
+    </div>
+    <p>&nbsp;</p>
+  </form>
+
+</body>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+  crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+  crossorigin="anonymous"></script>
+<script src="./js/datePicker.js"></script>
+<script src="./js/index.js"></script>
+
+
+<!-- Les code Javascript CI-DESSOUS uniquement -->
+<script>
+
+</script>
+
+</html>
